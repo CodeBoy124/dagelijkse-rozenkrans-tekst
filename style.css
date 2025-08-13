@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-wrap: balance;
+}
+
+body {
+  min-height: 100vh;
+  background-color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  max-width: 90%;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+#actions {
+  display: flex;
+  justify-content: center;
+}
+
+#actions > a {
+  width: 100%;
+}
+
+#actions > a > button {
+  width: 100%;
+}
+
+#text {
+  background-color: bisque;
+  padding: 10px;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px;
+}
+
+button.current {
+  background-color: bisque;
+  color: black;
+}
