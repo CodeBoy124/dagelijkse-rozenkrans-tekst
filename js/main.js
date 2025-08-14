@@ -55,41 +55,40 @@ for (let i = 0; i < huidigeMysteries.geheimen.length; i++) {
     ].join("\n") + "\n\n";
 }
 
-text +=
-  [
-    "(Slotgebeden)",
-    "Keuze 1: Toewijdingsgebed:",
-    "Mijn koningin, mijn Moeder,",
-    "Ik geef mezelf volledig aan U en toon U mijn aanhankelijkheid.",
-    "Ik offer U deze dag mijn ogen, mijn oren, mijn mond, mijn hart, geheel mijzelf, zonder voorbehoud.",
-    "Daarom goede Moeder, omdat ik de Uwe ben, neem mij en bewaar mij als Uw eigendom en bezit. Amen.",
-    "",
-    "Keuze 2: Gebed tot de Heilige Geest",
-    "Kom Heilig Geest, verlicht mijn hart om de dingen te zien die van God zijn.",
-    "Kom H. Geest, verlicht mijn verstand, om de dingen te kennen die van God zijn.",
-    "Kom H. Geest, in mijn ziel, dat ik alleen God toebehoor.",
-    "Heilig al wat ik denk, zeg en doe, opdat alles moge zijn voor de Glorie van God.",
-    "Amen.",
-    "",
-    "Keuze 3: Gebed tot de Aartsengel Michaël",
-    "Heilige Aartsengel Michaël, verdedig ons in de strijd, wees onze bescherming tegen de boosheid en de listen van de duivel.",
-    "Wij smeken ootmoedig dat God hem zijn macht doe gevoelen.",
-    "En Gij, vorst der hemelse legerscharen, drijf saten en de andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijkse kracht in de hel terug.",
-    "Amen.",
-    "",
-    "Keuze 4: Salve Regina",
-    "Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve.",
-    "Ad te clamamus, exsules filii Evae.",
-    "Ad te suspiramus, gementes et flentes in hac lacrimarum valle.",
-    "Eia, ergo, advocata nostra, illos tuos misericordes oculos ad nos converte; et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende.",
-    "O clemens, O pia, O dulcis Virgo Maria.",
-    "",
-    "(Vertaling Salve Regina)",
-    "Wees gegroet Koningin, Moeder van barmhartigheid; ons leven, onze vreugde en onze hoop, wees gegroet.",
-    "Tot u roepen wij, ballingen, kinderen van Eva; tot u smeken wij, zuchtend en wenend in dit dal van tranen.",
-    "Daarom dan, onze voorspreekster, sla op ons uw barmhartige ogen; en toon ons, na deze ballingschap, Jezus, de gezegende vrucht van uw schoot.",
-    "O zachtmoedige, o liefdevolle, o zoete maagd Maria.",
-  ].join("\n") + "\n\n";
+text += [
+  "(Slotgebeden)",
+  "Keuze 1: Toewijdingsgebed:",
+  "Mijn koningin, mijn Moeder,",
+  "Ik geef mezelf volledig aan U en toon U mijn aanhankelijkheid.",
+  "Ik offer U deze dag mijn ogen, mijn oren, mijn mond, mijn hart, geheel mijzelf, zonder voorbehoud.",
+  "Daarom goede Moeder, omdat ik de Uwe ben, neem mij en bewaar mij als Uw eigendom en bezit. Amen.",
+  "",
+  "Keuze 2: Gebed tot de Heilige Geest",
+  "Kom Heilig Geest, verlicht mijn hart om de dingen te zien die van God zijn.",
+  "Kom H. Geest, verlicht mijn verstand, om de dingen te kennen die van God zijn.",
+  "Kom H. Geest, in mijn ziel, dat ik alleen God toebehoor.",
+  "Heilig al wat ik denk, zeg en doe, opdat alles moge zijn voor de Glorie van God.",
+  "Amen.",
+  "",
+  "Keuze 3: Gebed tot de Aartsengel Michaël",
+  "Heilige Aartsengel Michaël, verdedig ons in de strijd, wees onze bescherming tegen de boosheid en de listen van de duivel.",
+  "Wij smeken ootmoedig dat God hem zijn macht doe gevoelen.",
+  "En Gij, vorst der hemelse legerscharen, drijf saten en de andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijkse kracht in de hel terug.",
+  "Amen.",
+  "",
+  "Keuze 4: Salve Regina",
+  "Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve.",
+  "Ad te clamamus, exsules filii Evae.",
+  "Ad te suspiramus, gementes et flentes in hac lacrimarum valle.",
+  "Eia, ergo, advocata nostra, illos tuos misericordes oculos ad nos converte; et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende.",
+  "O clemens, O pia, O dulcis Virgo Maria.",
+  "",
+  "(Vertaling Salve Regina)",
+  "Wees gegroet Koningin, Moeder van barmhartigheid; ons leven, onze vreugde en onze hoop, wees gegroet.",
+  "Tot u roepen wij, ballingen, kinderen van Eva; tot u smeken wij, zuchtend en wenend in dit dal van tranen.",
+  "Daarom dan, onze voorspreekster, sla op ons uw barmhartige ogen; en toon ons, na deze ballingschap, Jezus, de gezegende vrucht van uw schoot.",
+  "O zachtmoedige, o liefdevolle, o zoete maagd Maria.",
+].join("\n");
 
 document.getElementById("text").innerText = text;
 
@@ -105,3 +104,7 @@ document
     url.searchParams.set("full", useFull ? "no" : "yes");
     window.location.href = url.toString();
   });
+
+function copyContents() {
+  navigator.clipboard.writeText(text);
+}
