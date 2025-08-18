@@ -16,46 +16,37 @@ for (let i = 0; i < huidigeMysteries.geheimen.length; i++) {
   text += `${i + 1}. ${huidigeMysteries.geheimen[i]}\n`;
 }
 
-text +=
-  [
-    "",
-    useFull
-      ? "Hier volgt de volledige Rozenkrans"
-      : "Hier volgt een overzicht van de hele Rozenkrans:",
-    "",
-    "In de naam van de Vader, en de Zoon en de Heilige Geest. Amen.",
-    usePrayer(Prayer.GeloofsBelijdenis, useFull),
-    usePrayer(Prayer.OnzeVader, useFull),
-    `Wij groeten U, Dochter van God de Vader; ${usePrayer(
-      Prayer.Weesgegroet,
-      useFull
-    )}`,
-    `Wij groeten U, Moeder van God de Zoon; ${usePrayer(
-      Prayer.Weesgegroet,
-      useFull
-    )}`,
-    `Wij groeten U, Bruid van God de Heilige Geest; ${usePrayer(
-      Prayer.Weesgegroet,
-      useFull
-    )}`,
-    usePrayer(Prayer.EerAanDe, useFull),
-    "<Persoonlijke intenties>",
-    "",
-  ].join("\n") + "\n";
-
-for (let i = 0; i < huidigeMysteries.geheimen.length; i++) {
-  text +=
-    [
-      `${nummering[i]} ${huidigeMysteries.midtext}: ${huidigeMysteries.geheimen[i]}`,
-      `(Op de grote kralen) ${usePrayer(Prayer.OnzeVader, useFull)}`,
-      `(Op de kleine kralen) ${usePrayer(Prayer.Weesgegroet, useFull)}`,
-      "(Na de kleine kralen door met:)",
-      usePrayer(Prayer.EerAanDe, useFull),
-      "O Mijn Jezus, vergeef ons onze zonden, bewaar ons voor het vuur van de hel, breng alle zielen naar de hemel, vooral degenen die uw barmhartigheid het meeste nodig hebben.",
-    ].join("\n") + "\n\n";
-}
+const geloofsBelijdenis = usePrayer(Prayer.GeloofsBelijdenis, useFull);
+const onzeVader = usePrayer(Prayer.OnzeVader, useFull);
+const weesgegroet = usePrayer(Prayer.Weesgegroet, useFull);
+const eerAanDe = usePrayer(Prayer.EerAanDe, useFull);
 
 text += [
+  "",
+  useFull
+    ? "Hier volgt de volledige Rozenkrans"
+    : "Hier volgt een overzicht van de hele Rozenkrans:",
+  "",
+  "In de naam van de Vader, en de Zoon en de Heilige Geest. Amen.",
+  geloofsBelijdenis,
+  onzeVader,
+  `Wij groeten U, Dochter van God de Vader; ${weesgegroet}`,
+  `Wij groeten U, Moeder van God de Zoon; ${weesgegroet}`,
+  `Wij groeten U, Bruid van God de Heilige Geest; ${weesgegroet}`,
+  eerAanDe,
+  "<Persoonlijke intenties>",
+  ...huidigeMysteries.geheimen.map((mysterie, index) =>
+    [
+      ``,
+      `${nummering[index]} ${huidigeMysteries.midtext}: ${mysterie}`,
+      `(Op de grote kralen) ${onzeVader}`,
+      `(Op de kleine kralen) ${weesgegroet}`,
+      `(Na de kleine kralen door met:)`,
+      eerAanDe,
+      `O Mijn Jezus, vergeef ons onze zonden, bewaar ons voor het vuur van de hel, breng alle zielen naar de hemel, vooral degenen die uw barmhartigheid het meeste nodig hebben.`,
+    ].join("\n")
+  ),
+  "",
   "(Slotgebeden)",
   "Keuze 1: Toewijdingsgebed:",
   "Mijn koningin, mijn Moeder,",
@@ -89,8 +80,6 @@ text += [
   "Daarom dan, onze voorspreekster, sla op ons uw barmhartige ogen; en toon ons, na deze ballingschap, Jezus, de gezegende vrucht van uw schoot.",
   "O zachtmoedige, o liefdevolle, o zoete maagd Maria.",
 ].join("\n");
-
-document.getElementById("text").innerText = text;
 
 document
   .getElementById(useFull ? "action-volledig" : "action-overzicht")
