@@ -41,7 +41,7 @@ main {
   border-radius: 10px 10px 0 0;
 }
 
-#text {
+#text-container {
   background-image: url("images/paper-seamless-final-corrected.png");
   padding: 10px;
 }
@@ -91,4 +91,12 @@ button.current {
   border: 4px groove grey;
   border-bottom: none;
   border-top: none;
+}
+
+textarea {
+  border: 1px dashed black;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  border-radius: 5px;
 }

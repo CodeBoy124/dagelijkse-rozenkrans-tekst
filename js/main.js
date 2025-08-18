@@ -1,30 +1,21 @@
-const params = new URLSearchParams(document.location.search);
-const useFull = params.get("full") == "yes"; // is the string "Jonathan"
-
-function usePrayer(prayer, useFull) {
-  return useFull ? prayer.full : prayer.summary;
-}
-
 const findMysteries = (dayIndex) =>
   mysteries.find((v) => v.dagen.includes(dayIndex));
-
 const huidigeDag = new Date().getDay();
 const huidigeMysteries = findMysteries(huidigeDag);
 
-let text = `De geheimen voor ${dagnamen[huidigeDag]}: ${huidigeMysteries.naam}\n`;
-for (let i = 0; i < huidigeMysteries.geheimen.length; i++) {
-  text += `${i + 1}. ${huidigeMysteries.geheimen[i]}\n`;
-}
+const geloofsBelijdenis = Prayer.GeloofsBelijdenis;
+const onzeVader = Prayer.OnzeVader;
+const weesgegroet = Prayer.Weesgegroet;
+const eerAanDe = Prayer.EerAanDe;
 
-const geloofsBelijdenis = usePrayer(Prayer.GeloofsBelijdenis, useFull);
-const onzeVader = usePrayer(Prayer.OnzeVader, useFull);
-const weesgegroet = usePrayer(Prayer.Weesgegroet, useFull);
-const eerAanDe = usePrayer(Prayer.EerAanDe, useFull);
-
-text += [
+const text1 = [
+  `De geheimen voor ${dagnamen[huidigeDag]}: ${huidigeMysteries.naam}`,
+  ...huidigeMysteries.geheimen.map(
+    (mysterie, index) => `${index + 1}. ${mysterie}`
+  ),
   "",
-  useFull
-    ? "Hier volgt de volledige Rozenkrans"
+  fullParam
+    ? "Hier volgt de volledige Rozenkrans:"
     : "Hier volgt een overzicht van de hele Rozenkrans:",
   "",
   "In de naam van de Vader, en de Zoon en de Heilige Geest. Amen.",
@@ -34,7 +25,10 @@ text += [
   `Wij groeten U, Moeder van God de Zoon; ${weesgegroet}`,
   `Wij groeten U, Bruid van God de Heilige Geest; ${weesgegroet}`,
   eerAanDe,
-  "<Persoonlijke intenties>",
+].join("\n");
+
+const text2 = [
+  "<Eigen gebedsintenties>",
   ...huidigeMysteries.geheimen.map((mysterie, index) =>
     [
       ``,
@@ -81,19 +75,41 @@ text += [
   "O zachtmoedige, o liefdevolle, o zoete maagd Maria.",
 ].join("\n");
 
-document
-  .getElementById(useFull ? "action-volledig" : "action-overzicht")
-  .classList.add("current");
+text1Element.innerText = text1;
+text2Element.innerText = text2;
 
-document
-  .getElementById(useFull ? "link-overzicht" : "link-volledig")
-  .addEventListener("click", function (e) {
+gebedsIntentiesElement.value = intentionsParam;
+
+(fullParam
+  ? navVolledigButtonElement
+  : navOverzichtButtonElement
+).classList.add("current");
+
+function getLink(fullMode, prayerIntentions) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("full", fullMode ? "yes" : "no");
+  url.searchParams.set("intentions", prayerIntentions);
+  return url.toString();
+}
+
+(fullParam ? navOverzichtLinkElement : navVolledigLinkElement).addEventListener(
+  "click",
+  function (e) {
     e.preventDefault();
-    const url = new URL(window.location.href);
-    url.searchParams.set("full", useFull ? "no" : "yes");
-    window.location.href = url.toString();
-  });
+    const link = getLink(!fullParam, gebedsIntentiesElement.value);
+    // const url = new URL(window.location.href);
+    // url.searchParams.set("full", fullParam ? "no" : "yes");
+    // window.location.href = url.toString();
+    window.location.href = link;
+  }
+);
 
 function copyContents() {
-  navigator.clipboard.writeText(text);
+  const rawPrayerIntentions = gebedsIntentiesElement.value;
+  const prayerIntentions =
+    rawPrayerIntentions.length == 0
+      ? ""
+      : `(Mogelijk de volgende gebedsintenties:)\n${rawPrayerIntentions}`;
+  const fullText = text1 + "\n" + prayerIntentions + "\n" + text2;
+  navigator.clipboard.writeText(fullText);
 }

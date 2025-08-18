@@ -75,8 +75,9 @@ const mysteries = [
   },
 ];
 
+const usePrayer = (prayer) => (fullParam ? prayer.full : prayer.summary);
 const Prayer = {
-  GeloofsBelijdenis: {
+  GeloofsBelijdenis: usePrayer({
     summary:
       "Ik geloof in God... (De twaalf artikelen van het geloof (geloofsbelijdenis))",
     full: txt([
@@ -85,14 +86,14 @@ const Prayer = {
       "Ik geloof in de heilige Geest; de heilige katholieke kerk, de gemeenschap van de heiligen; de vergeving van de zonden; de verrijzenis van het lichaam; en het eeuwig leven.",
       "Amen.",
     ]),
-  },
-  OnzeVader: {
+  }),
+  OnzeVader: usePrayer({
     summary: "Onze Vader...",
     full: txt([
       "Onze Vader, die in de hemel zijt, Uw Naam worde geheiligd, Uw Rijk kome, Uw wil geschiede op aarde zoals in de hemel, Geef ons heden ons dagelijks brood en vergeef ons onze schuld zoals ook wij aan anderen hun schuld vergeven, en leid ons niet in bekoring, maar verlos ons van het kwade",
     ]),
-  },
-  Weesgegroet: {
+  }),
+  Weesgegroet: usePrayer({
     summary: "Wees gegroet Maria...",
     full: txt([
       "Wees gegroet Maria, vol van genade, de Heer is met u.",
@@ -100,13 +101,13 @@ const Prayer = {
       "Heilige Maria, Moeder van God, bid voor ons, zondaars, nu en in het uur van onze dood.",
       "Amen.",
     ]),
-  },
-  EerAanDe: {
+  }),
+  EerAanDe: usePrayer({
     summary: "Eer aan de Vader...",
     full: txt([
       "Eer aan de Vader en de Zoon en de heilige Geest.",
       "Zoals het was in het begin, en nu en altijd, tot in de eeuwen der eeuwen.",
       "Amen.",
     ]),
-  },
+  }),
 };
