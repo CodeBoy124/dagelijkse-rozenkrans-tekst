@@ -118,6 +118,5 @@ function copyContents() {
       gebedsIntentiesElement.value
     )}`,
   ].join("\n");
-  console.log(fullText);
   navigator.clipboard.writeText(fullText);
 }
