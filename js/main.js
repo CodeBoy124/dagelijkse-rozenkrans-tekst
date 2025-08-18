@@ -96,11 +96,7 @@ function getLink(fullMode, prayerIntentions) {
   "click",
   function (e) {
     e.preventDefault();
-    const link = getLink(!fullParam, gebedsIntentiesElement.value);
-    // const url = new URL(window.location.href);
-    // url.searchParams.set("full", fullParam ? "no" : "yes");
-    // window.location.href = url.toString();
-    window.location.href = link;
+    window.location.href = getLink(!fullParam, gebedsIntentiesElement.value);
   }
 );
 
@@ -110,6 +106,18 @@ function copyContents() {
     rawPrayerIntentions.length == 0
       ? ""
       : `(Mogelijk de volgende gebedsintenties:)\n${rawPrayerIntentions}`;
-  const fullText = text1 + "\n" + prayerIntentions + "\n" + text2;
+  const fullText = [
+    text1,
+    prayerIntentions,
+    text2,
+    "",
+    `Voor ${
+      fullParam ? "verkorte" : "volledige"
+    } variant, navigeer naar ${getLink(
+      !fullParam,
+      gebedsIntentiesElement.value
+    )}`,
+  ].join("\n");
+  console.log(fullText);
   navigator.clipboard.writeText(fullText);
 }
