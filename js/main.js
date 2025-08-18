@@ -110,13 +110,13 @@ function copyContents() {
     text1,
     prayerIntentions,
     text2,
-    "",
-    `Voor ${
-      fullParam ? "verkorte" : "volledige"
-    } variant, navigeer naar ${getLink(
-      !fullParam,
-      gebedsIntentiesElement.value
-    )}`,
+    // "",
+    // `Voor ${
+    //   fullParam ? "verkorte" : "volledige"
+    // } variant, navigeer naar ${getLink(
+    //   !fullParam,
+    //   gebedsIntentiesElement.value
+    // )}`,
   ].join("\n");
   navigator.clipboard.writeText(fullText);
 }
