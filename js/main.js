@@ -110,6 +110,8 @@ function copyContents() {
     text1,
     prayerIntentions,
     text2,
+    "",
+    "Voor meer uitleg over de rozenrkans, kun je deze video bekijken: https://www.youtube.com/watch?v=TvPcSQ4TtmY",
     // "",
     // `Voor ${
     //   fullParam ? "verkorte" : "volledige"
