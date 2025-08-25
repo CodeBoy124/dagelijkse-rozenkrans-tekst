@@ -44,7 +44,7 @@ const mysteries = [
     geheimen: [
       "De engel Gabriël brengt de blijde boodschap aan Maria",
       "Maria bezoekt haar nicht Elisabeth",
-      "Jezus wordt geboren in een stal van Betlehem.",
+      "Jezus wordt geboren in een stal van Betlehem",
       "Jezus wordt in de tempel aan God opgedragen",
       "Jezus wordt in de tempel wedergevonden",
     ],
