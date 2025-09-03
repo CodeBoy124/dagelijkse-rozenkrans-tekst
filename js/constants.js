@@ -30,7 +30,7 @@ const mysteries = [
     midtext: "Glorievolle mysterie",
     dagen: [ZO, WO],
     geheimen: [
-      "Jezus verijst uit de doden",
+      "Jezus verrijst uit de doden",
       "Jezus stijgt op ten hemel",
       "De Heilige Geest daalt neer over de apostelen",
       "Maria wordt met ziel en lichaam in de hemel opgenomen",
