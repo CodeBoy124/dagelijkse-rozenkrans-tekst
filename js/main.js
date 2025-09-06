@@ -58,7 +58,7 @@ const text2 = [
   "Keuze 3: Gebed tot de Aartsengel Michaël",
   "Heilige Aartsengel Michaël, verdedig ons in de strijd, wees onze bescherming tegen de boosheid en de listen van de duivel.",
   "Wij smeken ootmoedig dat God hem zijn macht doe gevoelen.",
-  "En Gij, vorst der hemelse legerscharen, drijf Satan en de andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijkse kracht in de hel terug.",
+  "En Gij, vorst der hemelse legerscharen, drijf Satan en de andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug.",
   "Amen.",
   "",
   "Keuze 4: Salve Regina",
