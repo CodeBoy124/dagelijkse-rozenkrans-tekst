@@ -57,7 +57,7 @@ const mysteries = [
       "De doop van Jezus in de Jordaan",
       "De openbaring van Jezus op de bruiloft van Kana",
       "Jezus' aankondiging van het Rijk Gods",
-      "De gedaanteverandering van Jezus op de berg",
+      "De gedaanteverandering van Jezus op de berg Tabor",
       "Jezus stelt de eucharistie in tijdens het Laatste Avondmaal",
     ],
   },
