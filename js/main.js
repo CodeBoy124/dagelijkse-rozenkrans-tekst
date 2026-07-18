@@ -11,7 +11,7 @@ const eerAanDe = Prayer.EerAanDe;
 const text1 = [
   `De geheimen voor ${dagnamen[huidigeDag]}: ${huidigeMysteries.naam}`,
   ...huidigeMysteries.geheimen.map(
-    (mysterie, index) => `${index + 1}. ${mysterie}`
+    (mysterie, index) => `${index + 1}. ${mysterie}`,
   ),
   "",
   fullParam
@@ -38,7 +38,7 @@ const text2 = [
       `(Na de kleine kralen door met:)`,
       eerAanDe,
       `O Mijn Jezus, vergeef ons onze zonden, bewaar ons voor het vuur van de hel, breng alle zielen naar de hemel, vooral degenen die uw barmhartigheid het meeste nodig hebben.`,
-    ].join("\n")
+    ].join("\n"),
   ),
   "",
   "(Slotgebeden)",
@@ -59,6 +59,13 @@ const text2 = [
   "Heilige Aartsengel Michaël, verdedig ons in de strijd, wees onze bescherming tegen de boosheid en de listen van de duivel.",
   "Wij smeken ootmoedig dat God hem zijn macht doe gevoelen.",
   "En Gij, vorst der hemelse legerscharen, drijf Satan en de andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug.",
+  "(optioneel: Heilige aartsengel Michaël, wij stellen onszelf, onze familie en alles wat ons toebehoort onder uw machtige bescherming.",
+  "Wil de goddelijke liefde steeds in onze harten doen toenemen.",
+  "Gedenk, o engel Gods, dat wij van heden af helemaal onder uw bescherming staan.",
+  "Verkrijg voor ons een altijd vuriger liefde tot God, onze Vader, tot Jezus, onze Verlosser, tot de heilige Geest, onze heiligmaker, tot Maria, onze hemelse moeder en tot Jozef, onze beschermer.",
+  "Heilige aartsengel Michaël, bid voor ons.",
+  "Heilige aartsengel Michaël, red ons land.",
+  "Heilige aartsengel Michaël, red de wereld.)",
   "Amen.",
   "",
   "Keuze 4: Salve Regina",
@@ -97,7 +104,7 @@ function getLink(fullMode, prayerIntentions) {
   function (e) {
     e.preventDefault();
     window.location.href = getLink(!fullParam, gebedsIntentiesElement.value);
-  }
+  },
 );
 
 function copyContents() {
